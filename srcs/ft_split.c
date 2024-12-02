@@ -12,10 +12,10 @@
 
 #include "../libft.h"
 
-static size_t count_words(char const *s, char c)
+static size_t    count_words(char const *s, char c)
 {
-    size_t words;
-    size_t i;
+    size_t    words;
+    size_t    i;
 
     words = 0;
     i = 0;
@@ -28,11 +28,11 @@ static size_t count_words(char const *s, char c)
     return (words);
 }
 
-static char *fill_tab(char const *s, char c)
+static char    *fill_tab(char const *s, char c)
 {
-    size_t len;
-    char *word;
-    size_t i;
+    size_t    len;
+    char    *word;
+    size_t    i;
 
     len = 0;
     while (s[len] && s[len] != c)
@@ -50,10 +50,10 @@ static char *fill_tab(char const *s, char c)
     return (word);
 }
 
-static int set_mem(char **tab, char const *s, char c)
+static int    set_mem(char **tab, char const *s, char c)
 {
-    size_t i;
-    size_t j;
+    size_t    i;
+    size_t    j;
 
     i = 0;
     j = 0;
@@ -79,10 +79,10 @@ static int set_mem(char **tab, char const *s, char c)
     return (1);
 }
 
-char **ft_split(char const *s, char c)
+char    **ft_split(char const *s, char c)
 {
-    size_t words;
-    char **tab;
+    size_t    words;
+    char    **tab;
 
     if (!s)
         return (NULL);
