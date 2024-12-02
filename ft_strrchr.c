@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eblancha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:44:31 by eblancha          #+#    #+#             */
-/*   Updated: 2024/11/12 08:38:53 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:22:18 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 
-	i = ft_strlen(s);
 	if (!s)
 		return (NULL);
+	i = ft_strlen(s);
 	while (i > 0)
 	{
 		if (s[i] == (char)c)

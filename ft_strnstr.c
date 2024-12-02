@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eblancha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:47:48 by eblancha          #+#    #+#             */
-/*   Updated: 2024/11/19 10:31:31 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:20:22 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	i;
+	size_t	index;
 	size_t	j;
 
-	i = 0;
-	if (*s2 == '\0')
-		return ((char *)s1);
-	while (s1[i] && i < len)
+	index = 0;
+	if (*little == '\0')
+		return ((char *)big);
+	while (big[index] && index < len)
 	{
 		j = 0;
-		while (s1[i + j] == s2[j] && s2[j] && i + j < len
-			&& s1[i + j] == s2[j])
+		while (big[index + j] == little[j] && little[j] && index + j < len)
 			j++;
-		if (!s2[j])
-			return ((char *)(s1 + i));
-		i++;
+		if (!little[j])
+			return ((char *)(big + index));
+		index++;
 	}
 	return (NULL);
 }
