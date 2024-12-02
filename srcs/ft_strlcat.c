@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 08:59:11 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 15:12:32 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:57:43 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {

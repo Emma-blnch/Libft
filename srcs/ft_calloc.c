@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:02:08 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 10:37:18 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:56:16 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	*ft_calloc(size_t num_elements, size_t size)
 {

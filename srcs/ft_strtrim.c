@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:50:08 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 15:35:24 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:58:09 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static int	char_in_set(char c, char const *set)
 {

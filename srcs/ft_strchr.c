@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:40:06 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 14:53:18 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:57:59 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

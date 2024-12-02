@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 11:25:20 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 14:46:56 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:57:32 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static size_t	count_words(char const *s, char c)
 {

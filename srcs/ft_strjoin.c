@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:30:35 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 15:03:34 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:57:39 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 char	*allocate_string(size_t size)
 {

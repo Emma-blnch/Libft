@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:11:50 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 10:27:06 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:56:12 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -6,11 +6,11 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:30:13 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 10:40:07 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:55:48 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 int	ft_atoi(const char *string)
 {
