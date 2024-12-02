@@ -18,6 +18,8 @@ char	*ft_strrchr(const char *s, int c)
 
 	if (!s)
 		return (NULL);
+	if (c == '\0')
+		return ((char *)(s + ft_strlen(s)));
 	i = ft_strlen(s);
 	while (i > 0)
 	{
