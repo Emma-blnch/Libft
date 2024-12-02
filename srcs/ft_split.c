@@ -12,88 +12,88 @@
 
 #include "../libft.h"
 
-static size_t    count_words(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
-    size_t    words;
-    size_t    i;
+	size_t	words;
+	size_t	i;
 
-    words = 0;
-    i = 0;
-    while (s[i])
-    {
-        if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-            words++;
-        i++;
-    }
-    return (words);
+	words = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			words++;
+		i++;
+	}
+	return (words);
 }
 
-static char    *fill_tab(char const *s, char c)
+static char	*fill_tab(char const *s, char c)
 {
-    size_t    len;
-    char    *word;
-    size_t    i;
+	size_t	len;
+	char	*word;
+	size_t	i;
 
-    len = 0;
-    while (s[len] && s[len] != c)
-        len++;
-    word = malloc(sizeof(char) * (len + 1));
-    if (!word)
-        return (NULL);
-    i = 0;
-    while (i < len)
-    {
-        word[i] = s[i];
-        i++;
-    }
-    word[i] = '\0';
-    return (word);
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	word = malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		word[i] = s[i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
 }
 
-static int    set_mem(char **tab, char const *s, char c)
+static int	set_mem(char **tab, char const *s, char c)
 {
-    size_t    i;
-    size_t    j;
+	size_t	i;
+	size_t	j;
 
-    i = 0;
-    j = 0;
-    while (s[i])
-    {
-        if (s[i] != c)
-        {
-            tab[j] = fill_tab(s + i, c);
-            if (!tab[j])
-            {
-                while (j > 0)
-                    free(tab[--j]);
-                return (0);
-            }
-            while (s[i] && s[i] != c)
-                i++;
-            j++;
-        }
-        else
-            i++;
-    }
-    tab[j] = NULL;
-    return (1);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			tab[j] = fill_tab(s + i, c);
+			if (!tab[j])
+			{
+				while (j > 0)
+					free(tab[--j]);
+				return (0);
+			}
+			while (s[i] && s[i] != c)
+				i++;
+			j++;
+		}
+		else
+			i++;
+	}
+	tab[j] = NULL;
+	return (1);
 }
 
-char    **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    size_t    words;
-    char    **tab;
+	size_t	words;
+	char	**tab;
 
-    if (!s)
-        return (NULL);
-    words = count_words(s, c);
-    tab = malloc(sizeof(char *) * (words + 1));
-    if (!tab)
-        return (NULL);
-    if (!set_mem(tab, s, c))
-    {
-        free(tab);
-        return (NULL);
-    }
-    return (tab);
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	tab = malloc(sizeof(char *) * (words + 1));
+	if (!tab)
+		return (NULL);
+	if (!set_mem(tab, s, c))
+	{
+		free(tab);
+		return (NULL);
+	}
+	return (tab);
 }
