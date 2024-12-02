@@ -6,7 +6,7 @@
 /*   By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 11:25:20 by eblancha          #+#    #+#             */
-/*   Updated: 2024/12/02 12:55:08 by eblancha         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:46:56 by eblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,75 +28,78 @@ static size_t	count_words(char const *s, char c)
 	return (words);
 }
 
-static char	*fill_word(char const *new, int start, int end)
+static void	fill_tab(char *new, char const *s, char c)
 {
 	size_t	i;
-	char	*word;
 
 	i = 0;
-	word = malloc(sizeof(char) * (end - start) + 1);
-	if (!word)
-		return (NULL);
-	while (start < end)
+	while (s[i] && s[i] != c)
 	{
-		word[i] = new[start];
+		new[i] = s[i];
 		i++;
-		start++;
 	}
-	word[i] = '\0';
-	return (word);
+	new[i] = '\0';
 }
 
-static void	free_tab(char **tab, size_t count)
+static void	free_tab(char **tab, size_t allocated)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < count)
+	while (i < allocated)
 	{
 		free(tab[i]);
 		i++;
 	}
-	free(tab);
 }
 
-static void	ft_initiate_vars(size_t *i, int *j, int *s_word)
+static int	set_mem(char **tab, char const *s, char c)
 {
-	*i = 0;
-	*j = 0;
-	*s_word = -1;
+	size_t	count;
+	size_t	index;
+	size_t	current;
+
+	index = 0;
+	current = 0;
+	while (s[index])
+	{
+		while (s[index] == c)
+			index++;
+		if (s[index])
+		{
+			count = 0;
+			while (s[index + count] && s[index + count] != c)
+				count++;
+			tab[current] = malloc(sizeof(char) * (count + 1));
+			if (!tab[current])
+			{
+				free_tab(tab, current);
+				return (0);
+			}
+			fill_tab(tab[current], s + index, c);
+			current++;
+			index += count;
+		}
+	}
+	tab[current] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	int		j;
-	int		s_word;
+	size_t	words;
 	char	**tab;
-	int		word_len;
 
-	ft_initiate_vars(&i, &j, &s_word);
-	word_len = count_words(s, c);
-	tab = malloc(sizeof(char *) * (word_len + 1));
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	tab = malloc(sizeof(char *) * (words + 1));
 	if (!tab)
 		return (NULL);
-	while (i < ft_strlen(s))
+	if (!set_mem(tab, s, c))
 	{
-		if (s[i] != c && s_word < 0)
-			s_word = i;
-		else if ((s[i] == c || s[i + 1] == '\0') && s_word >= 0)
-		{
-			tab[j] = fill_word(s, s_word, i);
-			if (!tab[j])
-			{
-				free_tab(tab, j);
-				return (NULL);
-			}
-			s_word = -1;
-			j++;
-		}
-		i++;
+		free(tab);
+		return (NULL);
 	}
-	tab[j] = NULL;
 	return (tab);
 }
